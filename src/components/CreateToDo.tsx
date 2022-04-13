@@ -5,17 +5,28 @@ import styled from "styled-components";
 import { categoryState, toDoState } from "../atoms";
 
 const Form = styled.form`
-  display:flex;
-  flex-direction:column;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  min-width:500px;
+  input {
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    height: 30px;
+    margin-top:15px;
+    &:focus {
+      outline: none;
+    }
+  }
   button {
     margin: 5% auto;
-    width:50%;
-    border-radius:2.222rem;
-    border:none;
+    width: 50%;
+    border-radius: 2.222rem;
+    border: none;
   }
 `;
-
-
 
 interface IForm {
   toDo: string;
@@ -44,8 +55,10 @@ function CreateToDo() {
       <input
         {...register("toDo", {
           required: "Please write a To Do",
+          maxLength: 30
         })}
         placeholder="Write a to do"
+        maxLength={30}
       />
       <button>Add</button>
     </Form>

@@ -4,7 +4,11 @@ import styled from "styled-components";
 import { Categories, IToDo, toDoState } from "../atoms";
 
 const List = styled.li`
-  
+  font-family: 'Noto Sans KR', sans-serif !important;
+  width:500px;
+  span{
+    margin-right:25px
+  }
 `;
 
 
@@ -41,23 +45,23 @@ function ToDo({ text, category, id }: IToDo) {
       <span>{text}</span>
       {category !== Categories.DOING && (
         <button name={Categories.DOING} onClick={onClick}>
-          Doing
+          🤔
         </button>
       )}
 
       {category !== Categories.TO_DO && (
         <button name={Categories.TO_DO} onClick={onClick}>
-          To Do
+          📝
         </button>
       )}
       {category !== Categories.DONE && (
         <button name={Categories.DONE} onClick={onClick}>
-          Done
+          🏆
         </button>
       )}
       {category && (
         <button name={Categories.TO_DO} onClick={onDeleteToDo}>
-          Delete
+          ❌
         </button>
       )}
     </List>
